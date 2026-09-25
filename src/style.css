@@ -53,6 +53,12 @@ main,
   margin-inline: auto;
 }
 
+.section-index {
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+  letter-spacing: 0.08em;
+}
+
 /*------------------------------*
 *            Header             *
 *------------------------------*/
@@ -94,7 +100,6 @@ main,
 }
 
 .hero-title {
-  max-width: 8ch;
   font-size: var(--text-display);
   font-weight: 700;
   line-height: 0.85;
@@ -123,12 +128,143 @@ main,
     padding-bottom: clamp(3rem, 6vh, 6rem);
   }
 
-  .hero-title {
-    max-width: 7ch;
-  }
-
   .scroll-hint {
     align-self: flex-end;
     margin-top: -1.5rem;
+  }
+}
+
+/*------------------------------*
+*            Manifesto          *
+*------------------------------*/
+
+.manifesto {
+  min-height: 100svh;
+  padding: var(--section-space) var(--page-gutter);
+}
+
+.manifesto-content {
+  margin-top: clamp(4rem, 15vh, 8rem);
+}
+
+.manifesto h2 {
+  max-width: 10ch;
+  font-size: clamp(2.75rem, 9vw, 7rem);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+
+.manifesto-content>p {
+  max-width: 32ch;
+  margin-top: 2rem;
+  color: var(--color-muted);
+}
+
+@media (min-width: 48rem) {
+  .manifesto {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
+  }
+
+  .manifesto-content {
+    grid-column: 2;
+    margin-top: clamp(5rem, 12vh, 9rem);
+  }
+}
+
+/*------------------------------*
+*            Rhythm             *
+*------------------------------*/
+
+.rhythm {
+  min-height: 100svh;
+  padding: var(--section-space) var(--page-gutter);
+  overflow: hidden;
+}
+
+.rhythm h2 {
+  display: flex;
+  flex-direction: column;
+  margin-top: clamp(5rem, 15vh, 10rem);
+  font-size: clamp(3.5rem, 13vw, 11rem);
+  font-weight: 700;
+  line-height: 0.8;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+}
+
+.rhythm h2 span:nth-child(2) {
+  align-self: flex-end;
+}
+
+.rhythm h2 span:nth-child(3) {
+  margin-left: 8vw;
+}
+
+@media (min-width: 48rem) {
+  .rhythm h2 span:nth-child(2) {
+    align-self: center;
+  }
+
+  .rhythm h2 span:nth-child(3) {
+    margin-left: 15vw;
+  }
+}
+
+/*------------------------------*
+*            Interaction        *
+*------------------------------*/
+
+.interaction {
+  position: relative;
+  min-height: 100svh;
+  padding: var(--section-space) var(--page-gutter);
+  overflow: hidden;
+}
+
+.interaction h2 {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  margin-top: clamp(5rem, 14vh, 9rem);
+  font-size: clamp(3.5rem, 13vh, 11rem);
+  font-weight: 700;
+  line-height: 0.8;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+}
+
+.interaction h2 span:nth-child(2) {
+  align-self: flex-end;
+}
+
+.interaction-visual {
+  width: clamp(8rem, 35vw, 18rem);
+  aspect-ratio: 1;
+  margin: clamp(3rem, 10vh, 7rem) auto 0;
+  border-radius: 50%;
+  background: var(--color-text);
+}
+
+@media (min-width: 48rem) {
+  .interaction h2 span:nth-child(2) {
+    align-self: center;
+  }
+
+  .interaction h2 span:nth-child(3) {
+    align-self: flex-end;
+  }
+
+  .interaction-visual {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: clamp(10rem, 16vw, 16rem);
+    margin: 0;
+    transform: translate(-50%, -50%);
   }
 }
