@@ -20,7 +20,7 @@ html {
 
   --text-sm: 0.75rem;
   --text-body: clamp(1rem, 1.2vw, 1.125rem);
-  --text-display: clamp(3.5rem, 11vw, 10rem);
+  --text-display: clamp(2.75rem, 11vw, 10rem);
 
   --content-width: 90rem;
 }
@@ -261,10 +261,58 @@ main,
 
   .interaction-visual {
     position: absolute;
-    top: 50%;
+    top: clamp(4rem, 12vh, 7rem);
     left: 50%;
     width: clamp(10rem, 16vw, 16rem);
     margin: 0;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
+  }
+}
+
+/*------------------------------*
+*            Finale             *
+*------------------------------*/
+
+.finale {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--section-space) var(--page-gutter);
+}
+
+.finale h2 {
+  margin-top: 4rem;
+  font-size: clamp(3.5rem, 11vw, 10rem);
+  font-weight: 700;
+  line-height: 0.85;
+  letter-spacing: -0.06em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.finale h2 span {
+  display: block;
+}
+
+/*------------------------------*
+*            Footer             *
+*------------------------------*/
+
+.site-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem var(--page-gutter);
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (min-width: 48rem) {
+  .site-footer {
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
