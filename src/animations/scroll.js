@@ -99,11 +99,11 @@ export function initScrollAnimations() {
                 y: isDesktop ? 48 : 28,
                 autoAlpha: 0,
                 duration: isDesktop ? 1 : 0.8,
-                stagger: 0.1,
+                stagger: 0.3,
                 ease: "power3.out",
                 scrollTrigger: {
                     trigger: ".finale",
-                    start: "top 70%",
+                    start: "top 65%",
                     once: true,
                 },
             });

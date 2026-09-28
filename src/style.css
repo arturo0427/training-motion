@@ -46,6 +46,11 @@ a {
   text-decoration: none;
 }
 
+a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
 .site-header,
 main,
 .site-footer {
@@ -312,6 +317,18 @@ main,
   font-size: var(--text-sm);
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.site-footer__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 1rem;
+  border-radius: 8px;
+}
+
+.site-footer__link:hover {
+  background: #72727221;
 }
 
 @media (min-width: 48rem) {
