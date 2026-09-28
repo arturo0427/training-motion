@@ -148,7 +148,6 @@ main,
 }
 
 .manifesto h2 {
-  max-width: 10ch;
   font-size: clamp(2.75rem, 9vw, 7rem);
   font-weight: 700;
   line-height: 0.9;
@@ -223,6 +222,8 @@ main,
   min-height: 100svh;
   padding: var(--section-space) var(--page-gutter);
   overflow: hidden;
+  background: var(--color-bg);
+  isolation: isolate;
 }
 
 .interaction h2 {
@@ -231,7 +232,7 @@ main,
   display: flex;
   flex-direction: column;
   margin-top: clamp(5rem, 14vh, 9rem);
-  font-size: clamp(3.5rem, 13vh, 11rem);
+  font-size: clamp(2.75rem, 13vw, 11rem);
   font-weight: 700;
   line-height: 0.8;
   letter-spacing: -0.06em;
@@ -265,7 +266,10 @@ main,
     left: 50%;
     width: clamp(10rem, 16vw, 16rem);
     margin: 0;
-    transform: translateX(-50%);
+    background: #fff;
+    mix-blend-mode: difference;
+    z-index: 2;
+    translate: -50% 0;
   }
 }
 
