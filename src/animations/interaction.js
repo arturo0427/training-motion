@@ -66,14 +66,26 @@ function initPointerInteraction() {
     const updateVisualPosition = () => {
         if (!hasPointerPosition) return;
 
-        const rect = section.getBoundingClientRect();
-        const radius = visual.offsetHeight / 2;
+        const sectionRect = section.getBoundingClientRect();
+        const visualRect = visual.getBoundingClientRect();
+
+        const currentX = Number(gsap.getProperty(visual, "x")) || 0;
+        const currentY = Number(gsap.getProperty(visual, "y")) || 0;
+
+        const radiusX = visualRect.width / 2;
+        const radiusY = visualRect.height / 2;
+
+        const baseCenterX =
+            visualRect.left + radiusX - currentX;
+
+        const baseCenterY =
+            visualRect.top + radiusY - currentY;
 
         const pointerInsideSection =
-            pointerX >= rect.left &&
-            pointerX <= rect.right &&
-            pointerY >= rect.top &&
-            pointerY <= rect.bottom;
+            pointerX >= sectionRect.left &&
+            pointerX <= sectionRect.right &&
+            pointerY >= sectionRect.top &&
+            pointerY <= sectionRect.bottom;
 
         if (!pointerInsideSection) {
             moveX(0);
@@ -81,20 +93,20 @@ function initPointerInteraction() {
             return;
         }
 
-        const originX = rect.width / 2;
-        const originY = visual.offsetTop + radius;
+        const rawX = pointerX - baseCenterX;
+        const rawY = pointerY - baseCenterY;
 
-        const localPointerX = pointerX - rect.left;
-        const localPointerY = pointerY - rect.top;
+        const minX =
+            sectionRect.left + radiusX - baseCenterX;
 
-        const rawX = localPointerX - originX;
-        const rawY = localPointerY - originY;
+        const maxX =
+            sectionRect.right - radiusX - baseCenterX;
 
-        const minX = -(originX - radius);
-        const maxX = rect.width - originX - radius;
+        const minY =
+            sectionRect.top + radiusY - baseCenterY;
 
-        const minY = -(originY - radius);
-        const maxY = section.clientHeight - originY - radius;
+        const maxY =
+            sectionRect.bottom - radiusY - baseCenterY;
 
         const x = gsap.utils.clamp(minX, maxX, rawX);
         const y = gsap.utils.clamp(minY, maxY, rawY);
@@ -132,18 +144,18 @@ function initTouchInteraction() {
     const animation = gsap.fromTo(
         visual,
         {
-            y: -24,
-            scale: 0.92,
+            yPercent: -25,
+            scale: 0.9,
         },
         {
-            y: 24,
-            scale: 1,
+            yPercent: 25,
+            scale: 1.05,
             ease: "none",
             scrollTrigger: {
                 trigger: ".interaction",
-                start: "top bottom",
-                end: "bottom top",
-                scrub: 1,
+                start: "top 85%",
+                end: "bottom 15%",
+                scrub: 0.6,
             },
         },
     );
