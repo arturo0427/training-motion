@@ -13,7 +13,7 @@ html {
 :root {
   --color-bg: #efede7;
   --color-text: #111111;
-  --color-muted: #727272;
+  --color-muted: #686868;
 
   --page-gutter: clamp(1.25rem, 4vw, 4rem);
   --section-space: clamp(6rem, 14vw, 12rem);
